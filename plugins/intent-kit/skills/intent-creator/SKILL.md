@@ -1,14 +1,19 @@
 ---
 name: intent-creator
-description: Create or refine an intent file using the Intent Creator standard (Goal, Inputs/Context, Outputs, Success Criteria, plus constraints and stop). Use when the user asks for an intent, a feature intent, an implementation intent, or says "intent creator".
-argument-hint: "[goal, ticket text, or path to an existing intent]"
+description: Create or refine an intent file using the Intent Creator standard (Goal, Inputs/Context, Outputs, Success Criteria, plus constraints and stop). Turns any rough input — a Jira story, ticket, notes, or a file the user dropped in — into an intent. Use when the user asks to create an intent, turn something into an intent, or says "intent creator".
+argument-hint: "[goal, ticket text, or path to a story/notes file or existing intent]"
 ---
 
 # Intent Creator
 
 Produce an implementation-ready intent: strong enough for autonomous, repo-aware execution, with no more constraint than the work needs.
 
-Input: `$ARGUMENTS` — a goal, ticket text, or an existing intent to refine. If empty, use the conversation.
+## Input
+Work out what `$ARGUMENTS` is:
+- **A path to an existing intent:** a file in `intents/`, or any file that already has the template's `## Goal` and `## Success Criteria` sections. Refine it in place.
+- **A path to anything else** (story, ticket export, notes, a hand-written `intent.md`): this is **source material**. Read it and **never modify, rename, or delete it**. Create a new intent from it, and list the source path under Inputs / Context.
+- **Text:** use it as source material.
+- **Empty:** use what the user said in the conversation. If that gives no goal, look for a file the user just added outside `intents/` (for example untracked in `git status`). If exactly one candidate exists, use it as source material and say which file you used; if several exist, ask which one.
 
 ## Steps
 1. Read the repository enough to ground the intent (guidance files, the affected area, the real validation commands). Do not invent repository facts.
@@ -18,6 +23,7 @@ Input: `$ARGUMENTS` — a goal, ticket text, or an existing intent to refine. If
 5. Write the intent to `intents/<slug>.md`, where `<slug>` is a short kebab-case name for the goal (for example `intents/add-name-flag.md`). Use another path only if the user names one or the repository already keeps intents elsewhere.
    - **Never overwrite a different intent.** If the target file exists and describes a different goal, choose a new slug.
    - When refining an existing intent, edit it in place and keep what is already right.
+   - Never write the intent over the source material file.
 6. Tell the user the path, so `execute-intent <path>` can pick it up.
 
 ## Template

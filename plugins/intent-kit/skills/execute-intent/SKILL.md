@@ -14,6 +14,8 @@ Find the intent file, in this order:
 3. The only intent in `intents/` (or a root `intent.md`) with unchecked success criteria.
 4. If several qualify, list them and ask which one. If none exist, use the intent in the conversation, or run `intent-creator` first.
 
+A file counts as an intent only if it has `## Goal` and `## Success Criteria` sections. Anything else (a story, notes, a hand-written `intent.md`) is source material: run `intent-creator` on it first, and leave the original file untouched.
+
 Work in that one file only; other intents belong to other work.
 
 ## 1. Understand

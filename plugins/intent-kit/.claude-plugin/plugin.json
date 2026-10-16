@@ -1,7 +1,7 @@
 {
   "name": "intent-kit",
   "description": "Intent-Driven Engineering for Claude Code: repo-aware onboarding, intent files with the four pillars, smallest-delta execution checked against the code, evidence-based validation, explicit stop conditions, and a dependency-free secret guard.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": {
     "name": "Mark Kendall"
   },
