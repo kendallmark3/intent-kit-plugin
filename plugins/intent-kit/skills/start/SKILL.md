@@ -8,7 +8,7 @@ description: Start work in an existing or unfamiliar repository with the repo-aw
 Understand the repository before proposing architecture or editing code.
 
 ## Read first
-1. Read repository guidance: `CLAUDE.md`, `AGENTS.md`, README files, any `intent.md` / spec / feature file, and the package manifests.
+1. Read repository guidance: `CLAUDE.md`, `AGENTS.md`, README files, any `intents/*.md`, `intent.md`, spec, or feature file, and the package manifests.
 2. Establish the implemented state from code and tests. Roadmap and spec prose are claims, not state.
 3. Find the real validation path: the test, typecheck, lint, and build commands the repository actually uses.
 4. Find the smallest set of files that implement the area in question, and the existing patterns nearby.

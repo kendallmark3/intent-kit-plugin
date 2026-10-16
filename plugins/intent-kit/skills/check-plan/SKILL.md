@@ -8,7 +8,7 @@ allowed-tools: Read Grep Glob
 
 # Check Plan
 
-Review the plan in `$ARGUMENTS` (default: `intent.md` at the repository root) against the code as it is now. Read-only: report, do not edit.
+Review the plan in `$ARGUMENTS` against the code as it is now. Without an argument, use the intent being executed in this conversation; if there is none, use the only file in `intents/` (or a root `intent.md`); if several exist, ask which. Read-only: report, do not edit.
 
 ## Verify
 For every item in the plan's Delta:

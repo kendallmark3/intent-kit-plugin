@@ -7,7 +7,7 @@ Intent Kit combines the two starters that scored highest against Intent-Driven E
 
 ## Kept
 - Repo-aware source of truth before editing (`start`).
-- The four intent pillars, written to a persistent `intent.md` so execution and review can check against it (`intent-creator`).
+- The four intent pillars, written to a persistent `intents/<slug>.md` (one file per piece of work, never overwritten) so execution and review can check against it (`intent-creator`).
 - Smallest safe delta, written into the intent, with a reuse-first ladder (`execute-intent`).
 - Plan checked against the code before multi-file changes (`check-plan`, forked and read-only).
 - Evidence table per success criterion; a test counts only after it has been seen failing (`execute-intent`).

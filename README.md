@@ -36,10 +36,12 @@ Update later with `claude plugin update intent-kit@kendall-intent-kit`.
 
 ```text
 /intent-kit:start                      understand the repository before changing it
-/intent-kit:intent-creator <goal>      write intent.md with the four pillars
-/intent-kit:execute-intent [intent.md] build it: delta → check plan → implement → prove → stop
-/intent-kit:check-plan [intent.md]     check a plan against the code (execute-intent runs it when needed)
+/intent-kit:intent-creator <goal>      write intents/<slug>.md with the four pillars
+/intent-kit:execute-intent [path]      build it: delta → check plan → implement → prove → stop
+/intent-kit:check-plan [path]          check a plan against the code (execute-intent runs it when needed)
 ```
+
+Each piece of work gets its own intent file under `intents/`, so parallel features never overwrite each other. Commit them with the code. They record what was asked, what changed, and the evidence that it works.
 
 The sequence:
 
@@ -61,7 +63,7 @@ STOP
 
 ### Skills
 - **`start`:** reads the repository first: guidance files, implemented state, the real validation commands, the smallest affected surface. Matches the effort to the work.
-- **`intent-creator`:** writes `intent.md` with Goal, Inputs/Context, Outputs, checkable Success Criteria, optional Constraints / Out of Scope, and Stop / bail-out conditions.
+- **`intent-creator`:** writes `intents/<slug>.md` (never overwriting a different intent) with Goal, Inputs/Context, Outputs, checkable Success Criteria, optional Constraints / Out of Scope, and Stop / bail-out conditions.
 - **`execute-intent`:** writes the delta into the intent, applies a reuse-first ladder (need it? → already here? → standard library? → installed dependency? → least code), runs `check-plan` for multi-file changes, implements, records an evidence table per success criterion, and stops or bails out on stated conditions.
 - **`check-plan`:** runs in a forked, read-only context. It verifies every file, caller, and assumption in the delta against the code, flags scope creep, and returns READY or FIX FIRST with `path:line` evidence.
 
@@ -85,6 +87,10 @@ claude plugin validate ./plugins/intent-kit --strict
 claude plugin validate . --strict
 python3 -m unittest discover -s tests -v
 ```
+
+## License
+
+MIT. See [LICENSE](LICENSE).
 
 ## Version 1 posture
 

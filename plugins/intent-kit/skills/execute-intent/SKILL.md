@@ -6,7 +6,15 @@ argument-hint: "[path to intent file]"
 
 # Execute Intent
 
-The repository and the intent are the source of truth. Intent file: `$ARGUMENTS`, else `intent.md` at the repository root, else the intent in the conversation.
+The repository and the intent are the source of truth.
+
+Find the intent file, in this order:
+1. `$ARGUMENTS`, if given.
+2. The intent created or named earlier in this conversation.
+3. The only intent in `intents/` (or a root `intent.md`) with unchecked success criteria.
+4. If several qualify, list them and ask which one. If none exist, use the intent in the conversation, or run `intent-creator` first.
+
+Work in that one file only; other intents belong to other work.
 
 ## 1. Understand
 - Read the intent and the repository guidance.

@@ -15,7 +15,10 @@ Input: `$ARGUMENTS` — a goal, ticket text, or an existing intent to refine. If
 2. Fill the four required pillars. Add the optional sections only when they change what gets built.
 3. Make every success criterion checkable: a command, an observable behavior, or a file state someone can verify.
 4. Mark genuinely unknown required information as `UNKNOWN:` and ask about it only if it blocks correct work.
-5. Write the intent to `intent.md` at the repository root, unless the user names another path or the repository already keeps intents elsewhere. When refining, edit in place and keep what is already right.
+5. Write the intent to `intents/<slug>.md`, where `<slug>` is a short kebab-case name for the goal (for example `intents/add-name-flag.md`). Use another path only if the user names one or the repository already keeps intents elsewhere.
+   - **Never overwrite a different intent.** If the target file exists and describes a different goal, choose a new slug.
+   - When refining an existing intent, edit it in place and keep what is already right.
+6. Tell the user the path, so `execute-intent <path>` can pick it up.
 
 ## Template
 ```markdown
