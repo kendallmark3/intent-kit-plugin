@@ -1,0 +1,14 @@
+{
+  "name": "kendall-intent-kit",
+  "owner": {
+    "name": "Mark Kendall"
+  },
+  "description": "Intent-Driven Engineering for Claude Code.",
+  "plugins": [
+    {
+      "name": "intent-kit",
+      "source": "./plugins/intent-kit",
+      "description": "Repo-aware intent creation and execution: smallest safe delta, plan checked against the code, evidence for every success criterion, explicit stop, and a secret guard."
+    }
+  ]
+}
